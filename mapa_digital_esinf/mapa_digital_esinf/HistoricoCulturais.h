@@ -31,9 +31,9 @@ public:
 	void setHAbertura(int ab);
 	void setHEncerramento(int en);
 	//leitura e escrita
-	void leitura() ;
-	void escreve() const ;
-	//virtual HistoricoCulturais* clone() const; //clone
+	virtual void leitura() ;
+	virtual void escreve() const ;
+	virtual HistoricoCulturais* clone() const ;
 };
 
 HistoricoCulturais::HistoricoCulturais():InteressesTuristicos(){

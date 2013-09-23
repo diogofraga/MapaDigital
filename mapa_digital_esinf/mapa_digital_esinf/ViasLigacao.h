@@ -14,11 +14,14 @@
 using namespace std;
 class ViasLigacao{
 private:
+	//int tamanho, actual; para o vector de apontadores dinamico
+	//ViasLigacao * * vias;
 	int codVia;
 	float totalKm;
 	float tempoMed;
 public:
 	ViasLigacao();
+	//ViasLigacao(int tam = 20);
 	ViasLigacao(int a,float b, float c);
 	ViasLigacao(const ViasLigacao& vl);
 	virtual ~ViasLigacao();
@@ -34,9 +37,23 @@ public:
 	virtual void leitura() ;
 	virtual void escreve() const ;	
 	//listar
-	//virtual void listar() const ; //ainda por implementar, nao me lembro.
-	//virtual ViasLigacao* clone() const; //clone
+	//virtual void listar() const ; //ainda por implementar
+	virtual ViasLigacao* clone(); // funções virtuais puras
+	virtual void escreve(ostream &out) const;
+
+	// void inserirViaLigacao(ViaLigacao *vl); para adicionar
+	// void inserirViasLigacao(ViasLigacao *vl)
+	
+	
 };
+
+/*ViasLigacao::ViasLigacao(int tam)
+{
+	tamanho = tam;
+	actual = 0;
+
+	vias = new ViasLigacao * [tamanho];
+}*/ //codigo preparado para o construtor com o vector
 
 
 ViasLigacao::ViasLigacao(){
@@ -59,6 +76,48 @@ ViasLigacao::ViasLigacao(const ViasLigacao& vl){
 
 ViasLigacao::~ViasLigacao(){
 }
+
+/*ViasLigacao::ViasLigacao(const Desenho &d)
+{
+	tamanho = d.tamanho;
+	actual = d.actual;
+
+	vec = new ViasLigacao *[tamanho];
+
+	for (int i=0; i<actual; i++)
+		vec[i] = d.vec[i]->clone();
+}*/
+
+//codigo para preencher
+
+
+/*ViasLigacao::~ViasLigacao()
+{
+	for (int i=0; i<actual; i++)
+		delete vias[i];
+
+	delete [] vias;
+}*/ //codigo para o destrutor com o vector
+
+
+
+/*void ViasLigacao::inserirViasLigacao(ViasLigacao *vl)
+{
+	if (actual == tamanho)
+	{
+		tamanho = 2* tamanho;
+		ViasLigacao * * vec_tmp = new ViasLigacao * [tamanho];
+		for (int i=0; i<actual; i++)
+			vec_tmp[i] = vias[i];
+		delete [] vias;
+		vias = vec_tmp;
+	}
+
+	vias[actual] = vl->clone();
+	actual++;
+}*/ //codigo para inserir vias
+
+
 
 int ViasLigacao::getCodVia() const{
 	return codVia;
@@ -91,8 +150,14 @@ void ViasLigacao::leitura(){
 	cout << "\nTempo Medio " ; cin >> tempoMed ;
 }
 
-void ViasLigacao::escreve() const{
+void ViasLigacao::escreve(ostream &out) const{
 	cout << "\nCodigo de Via: " << codVia << "\nTotal Kilometros: " << totalKm << "\nTempo Medio: " << tempoMed <<endl  ;
+}
+
+ostream & operator <<( ostream &out , const ViasLigacao &vl)
+{
+	vl.escreve(out);
+	return out;
 }
 
 #endif	/* VIASLIGACAO_H */

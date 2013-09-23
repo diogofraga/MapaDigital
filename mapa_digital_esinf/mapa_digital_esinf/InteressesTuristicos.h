@@ -27,7 +27,8 @@ public:
 	virtual void leitura() ;
 	virtual void escreve() const ;
 	//virtual void listar() const ; //ainda por implementar, nao me lembro.
-	//virtual InteressesTuristicos* clone() const; //clone
+	virtual InteressesTuristicos* clone();
+	virtual void escreve(ostream &out) const;
 };
 
 
@@ -57,8 +58,14 @@ void InteressesTuristicos::leitura(){
 	cout << "\nDescricao: " ; cin >> descr  ; 
 }
 
-void InteressesTuristicos::escreve() const{
+void InteressesTuristicos::escreve(ostream &out) const{
 	cout << "\nDescricao: "<< descr <<endl  ;
+}
+
+ostream & operator <<( ostream &out , const InteressesTuristicos &it)
+{
+	it.escreve(out);
+	return out;
 }
 
 #endif	/* INTERESSESTURISTICOS_H */

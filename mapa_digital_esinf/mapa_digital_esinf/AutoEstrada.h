@@ -26,8 +26,9 @@ public:
 	void setPrecoPortagem(float preco);
 	//leitura e escrita
 	virtual void leitura() ;
-	virtual void escreve() const ;
-	//virtual AutoEstrada* clone() const; //clone
+	virtual void escreve(ostream &out) const;
+	virtual AutoEstrada* clone() const ;
+
 };
 
 AutoEstrada::AutoEstrada():ViasLigacao(){
@@ -56,8 +57,18 @@ void AutoEstrada::leitura(){
 	cout << "\n Preco de Portagem: " ; cin >> precoPortagem  ; 
 }
 
-void AutoEstrada::escreve() const{
+void AutoEstrada::escreve(ostream &out) const{
 	cout << "\nPreco de Portagem: "<< precoPortagem <<" euros"<<endl  ;
+}
+
+ostream & operator <<( ostream &out , const AutoEstrada &at)
+{
+	at.escreve(out);
+	return out;
+}
+ViasLigacao* AutoEstrada::clone() const 
+{
+	return new AutoEstrada(*this);
 }
 
 #endif	/* AUTOESTRADA_H */

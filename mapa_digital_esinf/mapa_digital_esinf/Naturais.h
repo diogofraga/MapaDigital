@@ -25,9 +25,9 @@ public:
 	//sets
 	void setArea(int ar);
 	//leitura e escrita
-	void leitura() ;
-	void escreve() const ;	
-	//virtual Naturais* clone() const; //clone
+	virtual void leitura() ;
+	virtual void escreve() const ;	
+	virtual Naturais* clone() const ;
 };
 Naturais::Naturais():InteressesTuristicos(){
 area=0;

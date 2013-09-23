@@ -25,9 +25,9 @@ public:
 	//sets
 	void setTipoPavimento(int pav);
 	//leitura e escrita
-	void leitura() ;
-	void escreve() const ;
-	//virtual Nacionais* clone() const; //clone
+	virtual void leitura() ;
+	virtual void escreve() const ;
+	virtual Nacionais* clone() const ;
 };
 
 Nacionais::Nacionais():ViasLigacao(){
