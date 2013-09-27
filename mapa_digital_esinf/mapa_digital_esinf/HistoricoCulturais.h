@@ -32,10 +32,10 @@ public:
 	void setHAbertura(float ab);
 	void setHEncerramento(float en);
 	//leitura e escrita
-	virtual void leitura() ;
-	virtual void escreve(ostream &out) const;
+	void leitura() ;
+	void escreve(ostream &out) const;
 	//clone
-	virtual InteressesTuristicos* clone() const ;
+	InteressesTuristicos* clone() const ;
 	//Sobrecarga de operadores
 	void operator=(const HistoricoCulturais &hc);
 	bool operator==(const HistoricoCulturais &hc);

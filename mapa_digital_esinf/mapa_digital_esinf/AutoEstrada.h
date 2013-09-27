@@ -26,11 +26,11 @@ public:
 	//sets
 	void setPrecoPortagem(float preco);
 	//leitura e escrita
-	virtual void leitura() ;
-	virtual void escreve(ostream &out) const;
+	void leitura();
+	void escreve(ostream &out) const;
 	//virtual void escreve() const;
 	//clone
-	virtual ViasLigacao* clone() const ;
+	ViasLigacao* clone() const ;
 
 };
 //construtores e destrutor

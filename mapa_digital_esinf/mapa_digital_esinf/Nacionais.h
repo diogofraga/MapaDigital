@@ -26,10 +26,10 @@ public:
 	//sets
 	void setTipoPavimento(int pav);
 	//leitura e escrita
-	virtual void leitura() ;
-	virtual void escreve(ostream &out) const;
+	void leitura() ;
+	void escreve(ostream &out) const;
 	//clone
-	virtual ViasLigacao* clone() const ;
+	ViasLigacao* clone() const ;
 };
 //construtores e destrutor
 Nacionais::Nacionais():ViasLigacao(){

@@ -26,9 +26,9 @@ public:
 	//sets
 	void setArea(int ar);
 	//leitura e escrita
-	virtual void leitura() ;
-	virtual void escreve(ostream &out) const;
-	virtual InteressesTuristicos* clone() const;
+	void leitura() ;
+	void escreve(ostream &out) const;
+	InteressesTuristicos* clone() const;
 };
 //construtores e destrutor
 Naturais::Naturais():InteressesTuristicos(){
