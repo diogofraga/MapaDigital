@@ -53,12 +53,12 @@ void Teste::Run()
    Naturais* na= new Naturais();
    ViasLigacao* vl=new ViasLigacao();
    header();
-   a->escreve();
-   hc->escreve();
-   it->escreve();
-   n->escreve();
-   na->escreve();
-   vl->escreve();
+   cout << *a<<endl;
+   cout << *hc<<endl;
+   cout << *it<<endl;
+   cout << *n<<endl;
+   cout << *na<<endl;
+   cout << *vl<<endl;
    bottom();
 }
 Teste::~Teste(){}

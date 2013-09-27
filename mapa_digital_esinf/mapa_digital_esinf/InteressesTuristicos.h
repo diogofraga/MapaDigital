@@ -15,6 +15,7 @@ class InteressesTuristicos{
 private:
 	string descr;
 public:
+	//construtores e destrutor
 	InteressesTuristicos();
 	InteressesTuristicos(string a);
 	InteressesTuristicos(const InteressesTuristicos& it);
@@ -22,16 +23,17 @@ public:
 	//gets
 	string getDescricao() const;
 	//sets
-	void setDescricao(int desc);
+	void setDescricao(string descr);
 	//leitura e escrita
 	virtual void leitura() ;
-	virtual void escreve() const ;
+	//virtual void escreve() const ;
 	//virtual void listar() const ; //ainda por implementar, nao me lembro.
-	virtual InteressesTuristicos* clone();
 	virtual void escreve(ostream &out) const;
+	//clone
+	virtual InteressesTuristicos* clone()const;
 };
 
-
+//construtores e destrutor
 InteressesTuristicos::InteressesTuristicos(){
     descr="";
 }
@@ -46,20 +48,21 @@ InteressesTuristicos::InteressesTuristicos(const InteressesTuristicos& it){
 
 InteressesTuristicos::~InteressesTuristicos(){
 }
+//gets e sets
 string InteressesTuristicos:: getDescricao() const{
 	return descr;
 }
 
-void InteressesTuristicos:: setDescricao(int desc){
-	descr=desc;
+void InteressesTuristicos:: setDescricao(string descr){
+	descr=descr;
 }
-
+//leitura e escrita
 void InteressesTuristicos::leitura(){
 	cout << "\nDescricao: " ; cin >> descr  ; 
 }
 
 void InteressesTuristicos::escreve(ostream &out) const{
-	cout << "\nDescricao: "<< descr <<endl  ;
+	out << "\nDescricao: "<< descr <<endl  ;
 }
 
 ostream & operator <<( ostream &out , const InteressesTuristicos &it)
@@ -67,6 +70,10 @@ ostream & operator <<( ostream &out , const InteressesTuristicos &it)
 	it.escreve(out);
 	return out;
 }
-
+//clone
+InteressesTuristicos* InteressesTuristicos::clone() const
+{
+	return new InteressesTuristicos(*this);
+}
 #endif	/* INTERESSESTURISTICOS_H */
 

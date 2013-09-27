@@ -20,6 +20,7 @@ private:
 	float totalKm;
 	float tempoMed;
 public:
+	//construtores e destrutor
 	ViasLigacao();
 	//ViasLigacao(int tam = 20);
 	ViasLigacao(int a,float b, float c);
@@ -35,10 +36,10 @@ public:
 	void setTempoMed(float tempo);
 	//leitura e escrita
 	virtual void leitura() ;
-	virtual void escreve() const ;	
+	//virtual void escreve() const ;	
 	//listar
 	//virtual void listar() const ; //ainda por implementar
-	virtual ViasLigacao* clone(); // funções virtuais puras
+	virtual ViasLigacao* clone() const; // funções virtuais puras
 	virtual void escreve(ostream &out) const;
 
 	// void inserirViaLigacao(ViaLigacao *vl); para adicionar
@@ -56,6 +57,7 @@ public:
 }*/ //codigo preparado para o construtor com o vector
 
 
+//construtores e destrutor
 ViasLigacao::ViasLigacao(){
     codVia=0;
     totalKm=0;
@@ -118,7 +120,7 @@ ViasLigacao::~ViasLigacao(){
 }*/ //codigo para inserir vias
 
 
-
+//sets e gets
 int ViasLigacao::getCodVia() const{
 	return codVia;
 }
@@ -143,7 +145,7 @@ void ViasLigacao::setTempoMed(float tempo){
 	tempoMed=tempo;
 }
 
-
+//leitura e escrita
 void ViasLigacao::leitura(){
 	cout << "\nCodigo de Via" ; cin >> codVia  ; 
 	cout << "\nTotal Kilometros " ; cin >> totalKm ;
@@ -151,7 +153,7 @@ void ViasLigacao::leitura(){
 }
 
 void ViasLigacao::escreve(ostream &out) const{
-	cout << "\nCodigo de Via: " << codVia << "\nTotal Kilometros: " << totalKm << "\nTempo Medio: " << tempoMed <<endl  ;
+	out << "\nCodigo de Via: " << codVia << "\nTotal Kilometros: " << totalKm << "\nTempo Medio: " << tempoMed <<endl  ;
 }
 
 ostream & operator <<( ostream &out , const ViasLigacao &vl)
@@ -159,6 +161,10 @@ ostream & operator <<( ostream &out , const ViasLigacao &vl)
 	vl.escreve(out);
 	return out;
 }
-
+//clone
+ViasLigacao* ViasLigacao::clone() const
+{
+	return new ViasLigacao(*this);
+}
 #endif	/* VIASLIGACAO_H */
 

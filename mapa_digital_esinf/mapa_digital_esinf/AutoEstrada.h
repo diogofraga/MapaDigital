@@ -16,6 +16,7 @@ class AutoEstrada:public ViasLigacao{
 private:
 	float precoPortagem;
 public:
+	//construtores e destrutor
 	AutoEstrada();
 	AutoEstrada(int a, float b, float c,float d);
 	AutoEstrada(const AutoEstrada& at);
@@ -27,10 +28,12 @@ public:
 	//leitura e escrita
 	virtual void leitura() ;
 	virtual void escreve(ostream &out) const;
-	virtual AutoEstrada* clone() const ;
+	//virtual void escreve() const;
+	//clone
+	virtual ViasLigacao* clone() const ;
 
 };
-
+//construtores e destrutor
 AutoEstrada::AutoEstrada():ViasLigacao(){
     precoPortagem=0;
 }
@@ -44,28 +47,35 @@ AutoEstrada::AutoEstrada(const AutoEstrada& at):ViasLigacao(at){
 }
 
 AutoEstrada::~AutoEstrada(){}
-
+//gets
 float AutoEstrada::getPrecoPortagem() const{
 	return precoPortagem;
 }
-
+//sets
 void AutoEstrada::setPrecoPortagem(float preco){
 	precoPortagem = preco;
 }
-
+//leitura e escrita
 void AutoEstrada::leitura(){
 	cout << "\n Preco de Portagem: " ; cin >> precoPortagem  ; 
 }
 
 void AutoEstrada::escreve(ostream &out) const{
-	cout << "\nPreco de Portagem: "<< precoPortagem <<" euros"<<endl  ;
+	ViasLigacao::escreve(out);
+	out<< "\nPreco de Portagem: "<< precoPortagem <<" euros"<<endl  ;
 }
 
+/*void AutoEstrada::escreve() const
+{
+	cout << "\nPreco de Portagem: " << precoPortagem << " euros" << endl;
+}
+*/
 ostream & operator <<( ostream &out , const AutoEstrada &at)
 {
 	at.escreve(out);
 	return out;
 }
+//clone
 ViasLigacao* AutoEstrada::clone() const 
 {
 	return new AutoEstrada(*this);

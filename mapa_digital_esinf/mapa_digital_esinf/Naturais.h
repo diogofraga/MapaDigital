@@ -16,6 +16,7 @@ class Naturais:public InteressesTuristicos{
 private:
 	int area;
 public:
+	//construtores e destrutor
 	Naturais();
 	Naturais(int a);
 	Naturais(const Naturais& n);
@@ -26,9 +27,10 @@ public:
 	void setArea(int ar);
 	//leitura e escrita
 	virtual void leitura() ;
-	virtual void escreve() const ;	
-	virtual Naturais* clone() const ;
+	virtual void escreve(ostream &out) const;
+	virtual InteressesTuristicos* clone() const;
 };
+//construtores e destrutor
 Naturais::Naturais():InteressesTuristicos(){
 area=0;
 }
@@ -39,7 +41,7 @@ Naturais::Naturais(const Naturais& n):InteressesTuristicos(n){
 	area=n.area;
 }
 Naturais::~Naturais(){}
-
+//gets e sets
 int Naturais:: getArea() const{
 	return area;
 }
@@ -47,14 +49,24 @@ int Naturais:: getArea() const{
 void Naturais:: setArea(int ar){
 	area=ar;
 }
-
+//leitura e escrita
 void Naturais::leitura(){
 	cout << "\nArea " ; cin >> area  ; 
 }
 
-void Naturais::escreve() const{
-	cout << "\nArea: "<< area <<endl  ;
+void Naturais::escreve(ostream &out) const{
+	InteressesTuristicos::escreve(out);
+	out << "\nArea: "<< area <<endl  ;
 }
-
+ostream & operator <<(ostream &out, const Naturais &it)
+{
+	it.escreve(out);
+	return out;
+}
+//clone
+InteressesTuristicos* Naturais::clone() const
+{
+	return new Naturais(*this);
+}
 #endif	/* NATURAIS_H */
 
