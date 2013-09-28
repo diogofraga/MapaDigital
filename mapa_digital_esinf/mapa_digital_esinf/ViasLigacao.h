@@ -36,26 +36,15 @@ public:
 	void setTempoMed(float tempo);
 	//leitura e escrita
 	virtual void leitura() ;
-	//virtual void escreve() const ;	
+	virtual void escreve(ostream &out) const;
 	//listar
 	//virtual void listar() const ; //ainda por implementar
 	virtual ViasLigacao* clone() const; // funções virtuais puras
-	virtual void escreve(ostream &out) const;
-
-	// void inserirViaLigacao(ViaLigacao *vl); para adicionar
-	// void inserirViasLigacao(ViasLigacao *vl)
-	
+	//sobrecarga
+	void operator=(const ViasLigacao &vl);
+	bool operator==(const ViasLigacao &vl);
 	
 };
-
-/*ViasLigacao::ViasLigacao(int tam)
-{
-	tamanho = tam;
-	actual = 0;
-
-	vias = new ViasLigacao * [tamanho];
-}*/ //codigo preparado para o construtor com o vector
-
 
 //construtores e destrutor
 ViasLigacao::ViasLigacao(){
@@ -78,46 +67,6 @@ ViasLigacao::ViasLigacao(const ViasLigacao& vl){
 
 ViasLigacao::~ViasLigacao(){
 }
-
-/*ViasLigacao::ViasLigacao(const Desenho &d)
-{
-	tamanho = d.tamanho;
-	actual = d.actual;
-
-	vec = new ViasLigacao *[tamanho];
-
-	for (int i=0; i<actual; i++)
-		vec[i] = d.vec[i]->clone();
-}*/
-
-//codigo para preencher
-
-
-/*ViasLigacao::~ViasLigacao()
-{
-	for (int i=0; i<actual; i++)
-		delete vias[i];
-
-	delete [] vias;
-}*/ //codigo para o destrutor com o vector
-
-
-
-/*void ViasLigacao::inserirViasLigacao(ViasLigacao *vl)
-{
-	if (actual == tamanho)
-	{
-		tamanho = 2* tamanho;
-		ViasLigacao * * vec_tmp = new ViasLigacao * [tamanho];
-		for (int i=0; i<actual; i++)
-			vec_tmp[i] = vias[i];
-		delete [] vias;
-		vias = vec_tmp;
-	}
-
-	vias[actual] = vl->clone();
-	actual++;
-}*/ //codigo para inserir vias
 
 
 //sets e gets
@@ -156,15 +105,42 @@ void ViasLigacao::escreve(ostream &out) const{
 	out << "\nCodigo de Via: " << codVia << "\nTotal Kilometros: " << totalKm << "\nTempo Medio: " << tempoMed <<endl  ;
 }
 
-ostream & operator <<( ostream &out , const ViasLigacao &vl)
-{
-	vl.escreve(out);
-	return out;
-}
 //clone
 ViasLigacao* ViasLigacao::clone() const
 {
 	return new ViasLigacao(*this);
 }
+
+//sobrecarga
+ostream & operator <<(ostream &out, const ViasLigacao &vl)
+{
+	vl.escreve(out);
+	return out;
+}
+
+ostream & operator <<(ostream &out, const ViasLigacao *vl)
+{
+	vl->escreve(out);
+	return out;
+}
+
+void ViasLigacao::operator=(const ViasLigacao & vl)
+{
+	this->codVia = vl.codVia;
+	this->totalKm = vl.totalKm;
+	this->tempoMed = vl.tempoMed;
+}
+
+bool ViasLigacao::operator==(const ViasLigacao & vl)
+{
+	if (this->codVia == vl.codVia && this->totalKm == vl.totalKm && this->tempoMed == vl.tempoMed){
+		return true;
+	}
+	else return false;
+}
+
+
+
+
 #endif	/* VIASLIGACAO_H */
 

@@ -31,6 +31,9 @@ public:
 	virtual void escreve(ostream &out) const;
 	//clone
 	virtual InteressesTuristicos* clone()const;
+	//sobrecarga
+	void operator=(const InteressesTuristicos &it);
+	bool operator==(const InteressesTuristicos &it);
 };
 
 //construtores e destrutor
@@ -64,11 +67,32 @@ void InteressesTuristicos::leitura(){
 void InteressesTuristicos::escreve(ostream &out) const{
 	out << "\nDescricao: "<< descr <<endl  ;
 }
-
-ostream & operator <<( ostream &out , const InteressesTuristicos &it)
+//sobrecarga
+ostream & operator <<(ostream &out, const InteressesTuristicos &it)
 {
 	it.escreve(out);
 	return out;
+}
+
+ostream & operator <<(ostream &out, const InteressesTuristicos *it)
+{
+	it->escreve(out);
+	return out;
+}
+
+void InteressesTuristicos::operator=(const InteressesTuristicos & it)
+{
+	this->descr = it.descr;
+}
+
+bool InteressesTuristicos::operator==(const InteressesTuristicos & it)
+{
+	std::string a = this->getDescricao();
+	std::string b = it.getDescricao();
+	if (a.compare(b) == 0 ){
+		return true;
+	}
+	else return false;
 }
 //clone
 InteressesTuristicos* InteressesTuristicos::clone() const

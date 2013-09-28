@@ -31,6 +31,9 @@ public:
 	//virtual void escreve() const;
 	//clone
 	ViasLigacao* clone() const ;
+	//sobrecarga
+	void operator=(const AutoEstrada & at);
+	bool operator==(const AutoEstrada & at);
 
 };
 //construtores e destrutor
@@ -65,18 +68,37 @@ void AutoEstrada::escreve(ostream &out) const{
 	out<< "\nPreco de Portagem: "<< precoPortagem <<" euros"<<endl  ;
 }
 
-/*void AutoEstrada::escreve() const
+
+//sobrecarga
+void AutoEstrada::operator=(const AutoEstrada & at)
 {
-	cout << "\nPreco de Portagem: " << precoPortagem << " euros" << endl;
+	this->precoPortagem = at.precoPortagem;
+
 }
-*/
-ostream & operator <<( ostream &out , const AutoEstrada &at)
+
+bool AutoEstrada::operator==(const AutoEstrada & at)
+{
+	if (this->precoPortagem == at.precoPortagem)
+	{
+		return true;
+	}
+	else return false;
+}
+
+ostream & operator <<(ostream &out, const AutoEstrada &at)
 {
 	at.escreve(out);
 	return out;
 }
+
+ostream & operator <<(ostream &out, const AutoEstrada *at)
+{
+	at->escreve(out);
+	return out;
+}
+
 //clone
-ViasLigacao* AutoEstrada::clone() const 
+ViasLigacao* AutoEstrada::clone() const
 {
 	return new AutoEstrada(*this);
 }

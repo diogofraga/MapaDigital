@@ -101,9 +101,15 @@ InteressesTuristicos* HistoricoCulturais::clone() const
 	return new HistoricoCulturais(*this);
 }
 //Sobrecarga de operadores
-ostream & operator <<(ostream &out, const HistoricoCulturais &it)
+ostream & operator <<(ostream &out, const HistoricoCulturais &hc)
 {
-	it.escreve(out);
+	hc.escreve(out);
+	return out;
+}
+
+ostream & operator <<(ostream &out, const HistoricoCulturais *hc)
+{
+	hc->escreve(out);
 	return out;
 }
 void HistoricoCulturais::operator=(const HistoricoCulturais & hc)

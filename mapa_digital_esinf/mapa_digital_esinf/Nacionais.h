@@ -30,6 +30,9 @@ public:
 	void escreve(ostream &out) const;
 	//clone
 	ViasLigacao* clone() const ;
+	//sobrecarga
+	void operator=(const Nacionais & n);
+	bool operator==(const Nacionais & n);
 };
 //construtores e destrutor
 Nacionais::Nacionais():ViasLigacao(){
@@ -62,11 +65,33 @@ void Nacionais::escreve(ostream &out) const{
 	ViasLigacao::escreve(out);
 	cout << "\nTipo de Pavimento: "<< tipoPavimento <<endl  ;
 }
-ostream & operator <<(ostream &out, const Nacionais &it)
+//sobrecarga
+ostream & operator <<(ostream &out, const Nacionais &n)
 {
-	it.escreve(out);
+	n.escreve(out);
 	return out;
 }
+
+ostream & operator <<(ostream &out, const Nacionais *n)
+{
+	n->escreve(out);
+	return out;
+}
+void Nacionais::operator=(const Nacionais & n)
+{
+	this->tipoPavimento = n.tipoPavimento;
+
+}
+
+bool Nacionais::operator==(const Nacionais & n)
+{
+	if (this->tipoPavimento == n.tipoPavimento)
+	{
+		return true;
+	}
+	else return false;
+}
+
 //clone
 ViasLigacao* Nacionais::clone() const
 {

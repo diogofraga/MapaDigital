@@ -29,6 +29,9 @@ public:
 	void leitura() ;
 	void escreve(ostream &out) const;
 	InteressesTuristicos* clone() const;
+	//Sobrecarga de operadores
+	void operator=(const Naturais &n);
+	bool operator==(const Naturais &n);
 };
 //construtores e destrutor
 Naturais::Naturais():InteressesTuristicos(){
@@ -58,11 +61,37 @@ void Naturais::escreve(ostream &out) const{
 	InteressesTuristicos::escreve(out);
 	out << "\nArea: "<< area <<endl  ;
 }
-ostream & operator <<(ostream &out, const Naturais &it)
+
+//sobrecarga
+//Sobrecarga de operadores
+ostream & operator <<(ostream &out, const Naturais &n)
 {
-	it.escreve(out);
+	n.escreve(out);
 	return out;
 }
+
+ostream & operator <<(ostream &out, const Naturais *n)
+{
+	n->escreve(out);
+	return out;
+}
+void Naturais::operator=(const Naturais & n)
+{
+	this->setDescricao(n.getDescricao());
+	this->area = n.area;
+}
+
+bool Naturais::operator==(const Naturais & n)
+{
+	std::string a = this->getDescricao();
+	std::string b = n.getDescricao();
+	if (a.compare(b) == 0 && this->area == n.area)
+	{
+		return true;
+	}
+	else return false;
+}
+
 //clone
 InteressesTuristicos* Naturais::clone() const
 {
