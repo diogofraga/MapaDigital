@@ -62,9 +62,9 @@ Teste::Teste()
 	vecIT = new InteressesTuristicos*[10];
 	vecVL = new ViasLigacao*[10];
 	tamanhoIT = 10;
-	actualIT = 1;
+	actualIT = 0;
 	tamanhoVL = 10;
-	actualVL = 1;
+	actualVL = 0;
 
 }
 Teste::~Teste()
@@ -129,15 +129,35 @@ void Teste::Run()
    Nacionais* n=new Nacionais();
    Naturais* na= new Naturais();
    ViasLigacao* vl=new ViasLigacao();
+   //cabeçalho
    header();
+   
+   /*
    cout << *a<<endl;
    cout << *hc<<endl;
    cout << *it<<endl;
    cout << *n<<endl;
    cout << *na<<endl;
    cout << *vl<<endl;
+   */
+   
    inserirIT(it);
-   cout << vecIT[actualIT-1];
+   inserirIT(na);
+   inserirIT(hc);
+
+   inserirVL(vl);
+   inserirVL(n);
+   inserirVL(a);
+
+   for (int i = 0; i < actualIT; i++)
+   {
+	   cout << "IT" <<endl <<vecIT[i]<<endl;
+   }
+	
+   for (int j = 0; j < actualVL; j++)
+	   cout << "VL" <<endl<<vecVL[j]<<endl;
+   
+   //rodapé
    bottom();
 }
 //Método inserir Interesse Turistico
