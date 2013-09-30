@@ -146,7 +146,13 @@ bool ViasLigacao::operator==(const ViasLigacao & vl)
 	else return false;
 }
 
-
+//void ViasLigacao::listarViasLigacao(){
+//	ViasLigacao viaslig;
+//	for (int i = 0; i < tam_matriz; i++)
+//	for (int j = 0; j < tam_matriz; j++)
+//	if (nomedamatriz[i][j] != viaslig)
+//		cout << "Primeiro Local : " << i << ", Segundo Local :  " << j << ": " << nomedamatriz[i][j] << endl;
+//}
 
 
 #endif	/* VIASLIGACAO_H */
