@@ -16,6 +16,7 @@ class AutoEstrada:public ViasLigacao{
 private:
 	float precoPortagem;
 public:
+	friend istream& operator>> (istream& is, AutoEstrada &at);
 	//construtores e destrutor
 	AutoEstrada();
 	AutoEstrada(int a, float b, float c,float d);
@@ -96,6 +97,14 @@ ostream & operator <<(ostream &out, const AutoEstrada *at)
 	at->escreve(out);
 	return out;
 }
+
+
+istream& operator>> (istream& is, AutoEstrada &at)
+{
+	is >> at.precoPortagem;
+	return is;
+}
+
 
 //clone
 ViasLigacao* AutoEstrada::clone() const

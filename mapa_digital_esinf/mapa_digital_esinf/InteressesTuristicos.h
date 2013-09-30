@@ -15,6 +15,7 @@ class InteressesTuristicos{
 private:
 	string descr;
 public:
+	friend istream& operator>> (istream& is, InteressesTuristicos &it);
 	//construtores e destrutor
 	InteressesTuristicos();
 	InteressesTuristicos(string a);
@@ -78,6 +79,12 @@ ostream & operator <<(ostream &out, const InteressesTuristicos *it)
 {
 	it->escreve(out);
 	return out;
+}
+
+istream& operator>> (istream& is, InteressesTuristicos &it)
+{
+	is >> it.descr;
+	return is;
 }
 
 void InteressesTuristicos::operator=(const InteressesTuristicos & it)

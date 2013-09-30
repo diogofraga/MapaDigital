@@ -16,6 +16,7 @@ class Nacionais:public ViasLigacao{
 private:
 	string tipoPavimento;
 public:
+	friend istream& operator>> (istream& is, Nacionais &n);
 	//construtores e destrutor
 	Nacionais();
 	Nacionais(int a, float b, float c,string d);
@@ -81,6 +82,12 @@ void Nacionais::operator=(const Nacionais & n)
 {
 	this->tipoPavimento = n.tipoPavimento;
 
+}
+
+istream& operator>> (istream& is, Nacionais &n)
+{
+	is >> n.tipoPavimento;
+	return is;
 }
 
 bool Nacionais::operator==(const Nacionais & n)

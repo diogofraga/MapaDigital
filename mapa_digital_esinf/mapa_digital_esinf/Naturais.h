@@ -16,6 +16,7 @@ class Naturais:public InteressesTuristicos{
 private:
 	int area;
 public:
+	friend istream& operator>> (istream& is, Naturais &n);
 	//construtores e destrutor
 	Naturais();
 	Naturais(string a,int b);
@@ -75,6 +76,13 @@ ostream & operator <<(ostream &out, const Naturais *n)
 	n->escreve(out);
 	return out;
 }
+
+istream& operator>> (istream& is, Naturais &n)
+{
+	is >> n.area;
+	return is;
+}
+
 void Naturais::operator=(const Naturais & n)
 {
 	this->setDescricao(n.getDescricao());

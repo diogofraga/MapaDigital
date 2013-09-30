@@ -20,6 +20,7 @@ private:
 	float totalKm;
 	float tempoMed;
 public:
+	friend istream& operator>> (istream& is, ViasLigacao &vl);
 	//construtores e destrutor
 	ViasLigacao();
 	//ViasLigacao(int tam = 20);
@@ -122,6 +123,12 @@ ostream & operator <<(ostream &out, const ViasLigacao *vl)
 {
 	vl->escreve(out);
 	return out;
+}
+
+istream& operator>> (istream& is, ViasLigacao &vl)
+{
+	is >> vl.codVia >> vl.totalKm >> vl.tempoMed;
+	return is;
 }
 
 void ViasLigacao::operator=(const ViasLigacao & vl)

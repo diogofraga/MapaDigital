@@ -18,6 +18,7 @@ private:
 	float HAbertura;
 	float HEncerramento;
 public:
+	friend istream& operator>> (istream& is, HistoricoCulturais &hc);
 	//construtores e destrutor
 	HistoricoCulturais();
 	HistoricoCulturais(string descr,float tm,float ha,float he);
@@ -116,6 +117,13 @@ ostream & operator <<(ostream &out, const HistoricoCulturais *hc)
 	hc->escreve(out);
 	return out;
 }
+
+istream& operator>> (istream& is, HistoricoCulturais &hc)
+{
+	is >> hc.HtempoMed >> hc.HAbertura >> hc.HEncerramento;
+	return is;
+}
+
 void HistoricoCulturais::operator=(const HistoricoCulturais & hc)
 {
 	this->setDescricao(hc.getDescricao());
