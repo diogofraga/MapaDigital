@@ -4,12 +4,13 @@
 
 #include <iostream>
 #include <string>
-#include"AutoEstrada.h"
-#include"HistoricoCulturais.h"
+#include <fstream>
 #include"InteressesTuristicos.h"
-#include"Nacionais.h"
-#include"Naturais.h"
 #include"ViasLigacao.h"
+#include"HistoricoCulturais.h"
+#include"Naturais.h"
+#include"Nacionais.h"
+#include"AutoEstrada.h"
 using namespace std;
 
 class Teste
@@ -39,10 +40,14 @@ public:
 	// método de teste
     void Run();
 	//Método inserir Interesse Turistico
-	void  inserirIT(const InteressesTuristicos * it);
+	void  inserirIT(InteressesTuristicos * it);
 	//Método inserir Vias de Ligação
 	void  inserirVL(const ViasLigacao * vl);
+	//método carregar fich
+	void LerFich1(string fich1);
 };
+
+
 //Cabeçalho e rodapé da Aplicação
 void Teste::header(){
     cout<<"===================================="<<endl;
@@ -148,7 +153,7 @@ void Teste::Run()
    inserirVL(vl);
    inserirVL(n);
    inserirVL(a);
-
+   LerFich1("locaisInteresse.txt");
    for (int i = 0; i < actualIT; i++)
    {
 	   cout << "IT" <<endl <<vecIT[i]<<endl;
@@ -161,7 +166,7 @@ void Teste::Run()
    bottom();
 }
 //Método inserir Interesse Turistico
-void  Teste::inserirIT(const InteressesTuristicos * it)
+void  Teste::inserirIT(InteressesTuristicos * it)
 {
 	reSizeIT();
 	vecIT[actualIT] = it->clone();
@@ -175,6 +180,54 @@ void  Teste::inserirVL(const ViasLigacao * vl)
 	vecVL[actualVL] = vl->clone();
 	actualVL++;
 }
+//método carregar fich
+void Teste::LerFich1(string fich1)
+{
+	string line;
+	ifstream file(fich1);
+	if (file.is_open())
+	{
+		while (!file.eof())
+		{
+			getline(file, line);
+			if (line.size() > 1){
+				int inic = 0;
+				int pos = line.find(',', inic);
+				string primeiro(line.substr(inic, pos - inic));
+				pos++;
+				inic = pos;
+				pos = line.find(',', inic);
+				string segundo(line.substr(inic, pos - inic));
+				pos++;
+				inic = pos;
+				pos = line.find(',', inic);
+				if (pos != inic)
+				{
+					string terceiro(line.substr(inic, pos - inic));
+					pos++;
+					pos++;
+					inic = pos;
+					pos = line.find(',', inic);
+					string quarto(line.substr(inic, pos - inic));
+					float t2, t3, t4;
+					t2 = atof(segundo.c_str());
+					t3 = atof(terceiro.c_str());
+					t4 = atof(quarto.c_str());
+					HistoricoCulturais*hcf = new HistoricoCulturais(primeiro,t2,t3,t4);
+					inserirIT(hcf);
+				}
+				else
+				{
+					int t2 = atoi(segundo.c_str());
+					Naturais*nf = new Naturais(primeiro, t2);
+					inserirIT(nf);
+				}
+			}
+		}
+		file.close();
+	}
 
+	else cout << "Unable to open file";
+}
 #endif	/* TESTE_H */
 

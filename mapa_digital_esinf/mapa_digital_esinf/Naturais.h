@@ -18,7 +18,7 @@ private:
 public:
 	//construtores e destrutor
 	Naturais();
-	Naturais(int a);
+	Naturais(string a,int b);
 	Naturais(const Naturais& n);
 	~Naturais();
 	//gets
@@ -37,8 +37,8 @@ public:
 Naturais::Naturais():InteressesTuristicos(){
 area=0;
 }
-Naturais::Naturais(int a):InteressesTuristicos(){
-	area=a;
+Naturais::Naturais(string a,int b):InteressesTuristicos(a){
+	area=b;
 }
 Naturais::Naturais(const Naturais& n):InteressesTuristicos(n){
 	area=n.area;
