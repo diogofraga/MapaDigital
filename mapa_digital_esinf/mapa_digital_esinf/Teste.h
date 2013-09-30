@@ -116,15 +116,14 @@ void Teste::destroy()
 	for (int i = 0; i < actualIT; i++)
 	{
 		delete vecIT[i];
-		
 	}
-	for (int i = 0; i < actualVL; i++)
+	/*
+	for (int i = 1; i < actualVL; i++)
 	{
 		delete vecVL[i];
-
 	}
+	delete [] vecVL;*/
 	delete [] vecIT;
-	delete [] vecVL;
 }
 
 void Teste::reSizeIT()
@@ -196,6 +195,7 @@ void Teste::menu()
 		cout << "\n                   0--> Sair                      " << endl;
 		bottom();
 		cin >> opcao;
+		cin.ignore();//Sem este ignore o cin.get() simplesmente não funciona pois o cin em cima passa um \n para o cin.get() tirando o efeito do mesmo
 		switch (opcao)
 		{
 		case 1:
@@ -220,9 +220,7 @@ void Teste::menu()
 
 				//rodapé
 				bottom();
-				cout << "          Digite um numero seguido de enter para voltar ao menu" << endl;
-				int x; // Não serve para nada apenas para não saltar fora apos mostrar resultados
-				cin>>x;
+				cin.get();
 				system("CLS");//Clear Screen
 			  }
 		case 0:
