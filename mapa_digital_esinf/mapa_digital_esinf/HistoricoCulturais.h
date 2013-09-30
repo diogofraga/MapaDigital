@@ -93,7 +93,11 @@ void HistoricoCulturais::leitura(){
 
 void HistoricoCulturais::escreve(ostream &out) const{
 	InteressesTuristicos::escreve(out);
-	out << "\nTempo Medio: "<< HtempoMed <<"\nHora de Abertura: " << HAbertura << "\nHora de Encerramento: " << HEncerramento<<endl;
+	out << "\n                  Tempo Medio:             "<<
+		HtempoMed <<
+		"\n                  Hora de Abertura:        " << 
+		HAbertura << "\n                  Hora de Encerramento:    " << 
+		HEncerramento<<endl;
 }
 //clone
 InteressesTuristicos* HistoricoCulturais::clone() const

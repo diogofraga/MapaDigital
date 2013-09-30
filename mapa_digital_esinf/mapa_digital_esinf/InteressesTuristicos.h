@@ -65,7 +65,7 @@ void InteressesTuristicos::leitura(){
 }
 
 void InteressesTuristicos::escreve(ostream &out) const{
-	out << "\nDescricao: "<< descr <<endl  ;
+	out << "\n                  Descricao: "<< descr <<endl  ;
 }
 //sobrecarga
 ostream & operator <<(ostream &out, const InteressesTuristicos &it)

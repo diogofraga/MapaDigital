@@ -102,7 +102,7 @@ void ViasLigacao::leitura(){
 }
 
 void ViasLigacao::escreve(ostream &out) const{
-	out << "\nCodigo de Via: " << codVia << "\nTotal Kilometros: " << totalKm << "\nTempo Medio: " << tempoMed <<endl  ;
+	out << "\n                  Codigo de Via:     " << codVia << "\n                  Total Kilometros:  " << totalKm << "\n                  Tempo Medio:       " << tempoMed <<endl  ;
 }
 
 //clone

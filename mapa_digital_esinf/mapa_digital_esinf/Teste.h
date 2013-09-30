@@ -30,8 +30,9 @@ private:
 	int actualVL;
 	//Métodos de controle dos vectores
 	void reSizeIT();
-	void reSizeVL();
+	/*void reSizeVL();*/
 	void destroy();
+	void menu();
 
 public:
 	//Construtor e destrutor
@@ -42,7 +43,7 @@ public:
 	//Método inserir Interesse Turistico
 	void  inserirIT(InteressesTuristicos * it);
 	//Método inserir Vias de Ligação
-	void  inserirVL(const ViasLigacao * vl);
+	/*void  inserirVL(const ViasLigacao * vl);*/
 	//método carregar fich
 	void LerFich1(string fich1);
 };
@@ -142,7 +143,7 @@ void Teste::reSizeIT()
 
 }
 
-void Teste::reSizeVL()
+/*void Teste::reSizeVL()
 {
 	if (actualVL == tamanhoVL)
 	{
@@ -156,11 +157,13 @@ void Teste::reSizeVL()
 		vecVL = temp;
 	}
 
-}
+}*/
 
 //metódo para testar a classe
 void Teste::Run()
 {
+	menu();
+	/*
    //cabeçalho
    header();
    //ler fcheiro 1
@@ -171,13 +174,65 @@ void Teste::Run()
 	   cout << "                                                             " << endl;
 	   cout << "                      Interesse Turistico                    " << endl;
 	   cout << "                                                             " << endl;
-	   cout << vecIT[i] << endl;
+	   cout <<vecIT[i] << endl;
 	  
    }
+   
    for (int j = 0; j < actualVL; j++)
 	   cout << "VL" <<endl<<vecVL[j]<<endl;
+
    //rodapé
-   bottom();
+	bottom(); */
+}
+void Teste::menu()
+{
+	int opcao;
+	do
+	{
+		
+		header();
+		cout << "\n                             Menu :               " << endl;
+		cout << "\n                   1--> Carregar Ficheiros        " << endl;
+		cout << "\n                   0--> Sair                      " << endl;
+		bottom();
+		cin >> opcao;
+		switch (opcao)
+		{
+		case 1:
+			{
+				system("CLS");//Clear Screen
+				//cabeçalho
+				header();
+				//ler fcheiro 1
+				LerFich1("locaisInteresse.txt");
+				//escrever vector dinamico de interesses turisticos
+				for (int i = 0; i < actualIT; i++)
+				{
+					cout << "                                                             " << endl;
+					cout << "                      Interesse Turistico                    " << endl;
+					cout << "                                                             " << endl;
+					cout << vecIT[i] << endl;
+
+				}
+				/*
+				for (int j = 0; j < actualVL; j++)
+				cout << "VL" <<endl<<vecVL[j]<<endl;*/
+
+				//rodapé
+				bottom();
+				cout << "          Digite um numero seguido de enter para voltar ao menu" << endl;
+				int x; // Não serve para nada apenas para não saltar fora apos mostrar resultados
+				cin>>x;
+				system("CLS");//Clear Screen
+			  }
+		case 0:
+			{
+				break;
+			  }
+		default:
+			break;
+		}
+	} while (opcao != 0);
 }
 //Método inserir Interesse Turistico
 void  Teste::inserirIT(InteressesTuristicos * it)
@@ -188,12 +243,12 @@ void  Teste::inserirIT(InteressesTuristicos * it)
 
 }
 //Método inserir Vias de Ligação
-void  Teste::inserirVL(const ViasLigacao * vl)
+/*void  Teste::inserirVL(const ViasLigacao * vl)
 {
 	reSizeVL();
 	vecVL[actualVL] = vl->clone();
 	actualVL++;
-}
+}*/
 //método carregar fich
 void Teste::LerFich1(string fich1)
 {

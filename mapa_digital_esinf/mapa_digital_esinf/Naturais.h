@@ -59,7 +59,7 @@ void Naturais::leitura(){
 
 void Naturais::escreve(ostream &out) const{
 	InteressesTuristicos::escreve(out);
-	out << "\nArea: "<< area <<endl  ;
+	out << "\n                  Area: "<< area <<endl  ;
 }
 
 //sobrecarga

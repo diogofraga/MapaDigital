@@ -65,7 +65,7 @@ void AutoEstrada::leitura(){
 
 void AutoEstrada::escreve(ostream &out) const{
 	ViasLigacao::escreve(out);
-	out<< "\nPreco de Portagem: "<< precoPortagem <<" euros"<<endl  ;
+	out<< "\n                  Preco de Portagem: "<< precoPortagem <<" euros"<<endl  ;
 }
 
 

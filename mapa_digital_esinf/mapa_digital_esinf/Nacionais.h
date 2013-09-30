@@ -63,7 +63,7 @@ void Nacionais::leitura(){
 
 void Nacionais::escreve(ostream &out) const{
 	ViasLigacao::escreve(out);
-	cout << "\nTipo de Pavimento: "<< tipoPavimento <<endl  ;
+	out << "\n                  Tipo de Pavimento: "<< tipoPavimento <<endl  ;
 }
 //sobrecarga
 ostream & operator <<(ostream &out, const Nacionais &n)

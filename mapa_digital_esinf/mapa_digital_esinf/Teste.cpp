@@ -5,7 +5,7 @@
 int main() {
     Teste test;
     test.Run();
-	test.~Teste();
+	//test.~Teste();
     cin.get();
     //return 0;
 }
