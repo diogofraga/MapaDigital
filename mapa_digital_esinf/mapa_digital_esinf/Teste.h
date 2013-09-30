@@ -128,40 +128,21 @@ void Teste::reSizeVL()
 //metódo para testar a classe
 void Teste::Run()
 {
-   AutoEstrada* a=new AutoEstrada();
-   HistoricoCulturais* hc=new HistoricoCulturais();
-   InteressesTuristicos* it=new InteressesTuristicos("PRAIA");
-   Nacionais* n=new Nacionais();
-   Naturais* na= new Naturais();
-   ViasLigacao* vl=new ViasLigacao();
    //cabeçalho
    header();
-   
-   /*
-   cout << *a<<endl;
-   cout << *hc<<endl;
-   cout << *it<<endl;
-   cout << *n<<endl;
-   cout << *na<<endl;
-   cout << *vl<<endl;
-   */
-   
-   inserirIT(it);
-   inserirIT(na);
-   inserirIT(hc);
-
-   inserirVL(vl);
-   inserirVL(n);
-   inserirVL(a);
+   //ler fcheiro 1
    LerFich1("locaisInteresse.txt");
+   //escrever vector dinamico de interesses turisticos
    for (int i = 0; i < actualIT; i++)
    {
-	   cout << "IT" <<endl <<vecIT[i]<<endl;
+	   cout << "                                    " << endl;
+	   cout << "        Interesse Turistico         " << endl;
+	   cout << "____________________________________" << endl;
+	   cout << vecIT[i] << endl;
+	  
    }
-	
    for (int j = 0; j < actualVL; j++)
 	   cout << "VL" <<endl<<vecVL[j]<<endl;
-   
    //rodapé
    bottom();
 }
@@ -201,32 +182,30 @@ void Teste::LerFich1(string fich1)
 				pos++;
 				inic = pos;
 				pos = line.find(',', inic);
-				if (pos != inic)
+				string terceiro(line.substr(inic, pos - inic));
+				pos++;
+				inic = pos;
+				pos = line.find(',', inic);
+				string quarto(line.substr(inic, pos - inic));
+				float t2, t3, t4;
+				t2 = atof(segundo.c_str());
+				t3 = atof(terceiro.c_str());
+				t4 = atof(quarto.c_str());
+				if (t3 == 0)
 				{
-					string terceiro(line.substr(inic, pos - inic));
-					pos++;
-					pos++;
-					inic = pos;
-					pos = line.find(',', inic);
-					string quarto(line.substr(inic, pos - inic));
-					float t2, t3, t4;
-					t2 = atof(segundo.c_str());
-					t3 = atof(terceiro.c_str());
-					t4 = atof(quarto.c_str());
-					HistoricoCulturais*hcf = new HistoricoCulturais(primeiro,t2,t3,t4);
-					inserirIT(hcf);
+					int ti2 = atoi(segundo.c_str());
+					Naturais*nf = new Naturais(primeiro, ti2);
+					inserirIT(nf);
 				}
 				else
 				{
-					int t2 = atoi(segundo.c_str());
-					Naturais*nf = new Naturais(primeiro, t2);
-					inserirIT(nf);
-				}
+					HistoricoCulturais*hcf = new HistoricoCulturais(primeiro, t2, t3, t4);
+					inserirIT(hcf);
+				}				
 			}
 		}
 		file.close();
 	}
-
 	else cout << "Unable to open file";
 }
 #endif	/* TESTE_H */
