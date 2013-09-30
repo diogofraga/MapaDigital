@@ -1,0 +1,5 @@
+LocTurist1,9000
+LocTurist2,120,570,1110
+LocTurist3,5500
+LocTurist4,2300
+LocTurist5,20,540,870
