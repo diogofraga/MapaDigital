@@ -188,10 +188,10 @@ void Teste::menu()
 {
 	InteressesTuristicos interesses;
 	int opcao;
+	header();
 	do
 	{
 		
-		header();
 		cout << "\n                             Menu :               " << endl;
 		cout << "\n                   2--> Contabilizar IT's         " << endl;
 		cout << "\n                   1--> Carregar Ficheiros        " << endl;
