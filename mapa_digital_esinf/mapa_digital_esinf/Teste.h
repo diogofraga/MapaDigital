@@ -50,16 +50,49 @@ public:
 
 //Cabeçalho e rodapé da Aplicação
 void Teste::header(){
-    cout<<"===================================="<<endl;
-    cout<<"             MAPA DIGITAL           "<<endl;
-    cout<<"===================================="<<endl;
+  
+	cout << "  88b           d88                                          " << endl;
+	cout << "  888b         d888                                          " << endl;
+	cout << "  88`8b       d8'88                                          " << endl;
+	cout << "  88 `8b     d8' 88  ,adPPYYba,  8b,dPPYba,   ,adPPYYba,     " << endl;
+	cout << "  88  `8b   d8'  88  ´´     `Y8  88P'    ´8a  ´´     `Y8     " << endl;
+	cout << "  88   `8b d8'   88  ,adPPPPP88  88       d8  ,adPPPPP88     " << endl;
+	cout << "  88    `888'    88  88,    ,88  88b,   ,a8´  88,    ,88     " << endl;
+	cout << "  88     `8'     88  `´8bbdP´Y8  88`YbbdP´'   `´8bbdP´Y8     " << endl;
+	cout << "                                 88                          " << endl;
+	cout << "                                 88                          " << endl;
+
+	cout << "                                                             " << endl;
+	cout << "                                                             " << endl;
+
+	cout << " 88888888ba,    88               88                       88" << endl;
+	cout << " 88      `´8b   ´´               ´´    ,d                 88" << endl;
+	cout << " 88        `8b                         88                 88" << endl;
+	cout << " 88         88  88   ,adPPYb,d8  88  MM88MMM  ,adPPYYba,  88" << endl;
+	cout << " 88         88  88  a8´    `Y88  88    88     ´´     `Y8  88" << endl;
+	cout << " 88         8P  88  8b       88  88    88     ,adPPPPP88  88" << endl;
+	cout << " 88      .a8P   88  ´8a,   ,d88  88    88,    88,    ,88  88" << endl;
+	cout << " 88888888Y´'    88   `´YbbdP´Y8  88    ´Y888  `´8bbdP´Y8  88" << endl;
+	cout << "                     aa,    ,88                             " << endl;
+	cout << "                      ´Y8bbdP´                              " << endl;
+	cout << "                                                             " << endl;
+	cout << "                                                             " << endl;
+	cout << "                                                             " << endl;
+	cout << "............................................................." << endl;
 }
 
 void Teste::bottom(){
-    cout<<"===================================="<<endl;
-    cout<<"              2013/ 2014            "<<endl;
-    cout<<"                 v0.0               "<<endl;
-    cout<<"===================================="<<endl;
+	cout<<"                                                               "<<endl;
+	cout<<"                                                               "<<endl;
+    cout<<"==============================================================="<<endl;
+	cout<<"         Instituto Superior de Engenharia do Porto             "<<endl;
+    cout<<"                                                               "<<endl;
+	cout<<"Diogo Fraga                                                    "<<endl;
+	cout<<"Ia Mendes                                                      "<<endl;
+	cout<<"                                                               "<<endl;
+	cout<<"                                                               "<<endl;
+    cout<<"2013/2014                                                  v0.2"<<endl;
+    cout<<"==============================================================="<<endl;
 }
 //construtor e destrutor
 Teste::Teste()
@@ -135,9 +168,9 @@ void Teste::Run()
    //escrever vector dinamico de interesses turisticos
    for (int i = 0; i < actualIT; i++)
    {
-	   cout << "                                    " << endl;
-	   cout << "        Interesse Turistico         " << endl;
-	   cout << "____________________________________" << endl;
+	   cout << "                                                             " << endl;
+	   cout << "                      Interesse Turistico                    " << endl;
+	   cout << "                                                             " << endl;
 	   cout << vecIT[i] << endl;
 	  
    }
