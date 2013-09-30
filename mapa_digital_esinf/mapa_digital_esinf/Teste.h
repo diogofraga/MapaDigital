@@ -46,7 +46,7 @@ public:
 	/*void  inserirVL(const ViasLigacao * vl);*/
 	//método carregar fich
 	void LerFich1(string fich1);
-	void contabilizarLocais() const;
+	void contabilizaLocais() const;
 };
 
 
@@ -158,7 +158,19 @@ void Teste::reSizeIT()
 	}
 
 }*/
+void Teste :: contabilizaLocais() const{
+int historicos = 0, naturais = 0;
 
+for (int i = 0; i < actualIT; i++)
+{
+
+	if (typeid(*vecIT[i]) == typeid(HistoricoCulturais)) historicos++;
+	if (typeid(*vecIT[i]) == typeid(Naturais)) naturais++;
+}
+cout << "                                                             " << endl;
+cout << "HistoricoCulturais: " << historicos << " Naturais: " << naturais << endl;
+cout << "                                                             " << endl;
+}
 //metódo para testar a classe
 void Teste::Run()
 {
@@ -227,17 +239,7 @@ void Teste::menu()
 				system("CLS");//Clear Screen
 			  }
 		case 2:{
-				int historicos = 0, naturais = 0;
-			
-				for (int i = 0; i < actualIT; i++)
-				{
-				
-					if (typeid(*vecIT[i]) == typeid(HistoricoCulturais)) historicos++;
-					if (typeid(*vecIT[i]) == typeid(Naturais)) naturais++;
-				}
-				cout << "                                                             " << endl;
-				cout << "HistoricoCulturais: " << historicos << " Naturais: " << naturais << endl;
-				cout << "                                                             " << endl;
+			contabilizaLocais();                                                      
 			}
 			   
 		case 0:
