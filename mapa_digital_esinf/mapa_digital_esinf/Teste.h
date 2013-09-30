@@ -46,6 +46,7 @@ public:
 	/*void  inserirVL(const ViasLigacao * vl);*/
 	//método carregar fich
 	void LerFich1(string fich1);
+	void contabilizarLocais() const;
 };
 
 
@@ -185,12 +186,14 @@ void Teste::Run()
 }
 void Teste::menu()
 {
+	InteressesTuristicos interesses;
 	int opcao;
 	do
 	{
 		
 		header();
 		cout << "\n                             Menu :               " << endl;
+		cout << "\n                   2--> Contabilizar IT's         " << endl;
 		cout << "\n                   1--> Carregar Ficheiros        " << endl;
 		cout << "\n                   0--> Sair                      " << endl;
 		bottom();
@@ -223,6 +226,20 @@ void Teste::menu()
 				cin.get();
 				system("CLS");//Clear Screen
 			  }
+		case 2:{
+				int historicos = 0, naturais = 0;
+			
+				for (int i = 0; i < actualIT; i++)
+				{
+				
+					if (typeid(*vecIT[i]) == typeid(HistoricoCulturais)) historicos++;
+					if (typeid(*vecIT[i]) == typeid(Naturais)) naturais++;
+				}
+				cout << "                                                             " << endl;
+				cout << "HistoricoCulturais: " << historicos << " Naturais: " << naturais << endl;
+				cout << "                                                             " << endl;
+			}
+			   
 		case 0:
 			{
 				break;

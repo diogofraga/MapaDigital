@@ -1,11 +1,11 @@
-﻿Build started 30-09-2013 22:36:44.
+﻿Build started 30-09-2013 23:04:23.
      1>Project "C:\Users\Fraga\Source\Repos\MapaDigital2\mapa_digital_esinf\mapa_digital_esinf\mapa_digital_esinf.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Teste.cpp
          Teste.cpp
-     1>c:\users\fraga\source\repos\mapadigital2\mapa_digital_esinf\mapa_digital_esinf\teste.h(277): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
-     1>c:\users\fraga\source\repos\mapadigital2\mapa_digital_esinf\mapa_digital_esinf\teste.h(278): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
-     1>c:\users\fraga\source\repos\mapadigital2\mapa_digital_esinf\mapa_digital_esinf\teste.h(279): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\fraga\source\repos\mapadigital2\mapa_digital_esinf\mapa_digital_esinf\teste.h(294): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\fraga\source\repos\mapadigital2\mapa_digital_esinf\mapa_digital_esinf\teste.h(295): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\fraga\source\repos\mapadigital2\mapa_digital_esinf\mapa_digital_esinf\teste.h(296): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
        Link:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Fraga\Source\Repos\MapaDigital2\mapa_digital_esinf\Debug\mapa_digital_esinf.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Fraga\Source\Repos\MapaDigital2\mapa_digital_esinf\Debug\mapa_digital_esinf.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Fraga\Source\Repos\MapaDigital2\mapa_digital_esinf\Debug\mapa_digital_esinf.lib" /MACHINE:X86 Debug\Teste.obj
          mapa_digital_esinf.vcxproj -> C:\Users\Fraga\Source\Repos\MapaDigital2\mapa_digital_esinf\Debug\mapa_digital_esinf.exe
@@ -13,4 +13,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:01.59
+Time Elapsed 00:00:01.35
