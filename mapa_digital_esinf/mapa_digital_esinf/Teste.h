@@ -41,6 +41,7 @@ private:
 public:
 	//Construtor e destrutor
     Teste();
+	Teste( const Teste &t);
     ~Teste();
 	// método de Teste
     void Run();
@@ -109,13 +110,25 @@ Teste::Teste()
 	actualIT = 0;
 	tamanhoVL = 10;
 	actualVL = 0;
-
 }
+Teste::Teste( const Teste &t){
+	linhas=t.linhas;
+	colunas=t.colunas;
+	matrizligacao= new ViasLigacao * [linhas];
+	for(int i=0;i<linhas;i++)
+		matrizligacao[i]=new ViasLigacao[colunas];
+	for(int i=0;i<linhas;i++)
+		for(int j=0;j<colunas;j++)
+			matrizligacao[i][j]=t.matrizligacao[i][j];
+}
+
+
+
 Teste::~Teste()
 {
-	/*for(int i=0; i<linhas; i++)
+	for(int i=0; i<linhas; i++)
 		delete matrizligacao[i];
-	delete []matrizligacao;*/
+	delete []matrizligacao;
 	destroy();
 }
 
