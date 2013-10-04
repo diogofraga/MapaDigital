@@ -42,7 +42,7 @@ public:
 	//virtual void listar() const ; //ainda por implementar
 	virtual ViasLigacao* clone() const; // funções virtuais puras
 	//sobrecarga
-	ViasLigacao operator=(const ViasLigacao &vl);
+	virtual ViasLigacao operator=(const ViasLigacao &vl);
 	bool operator==(const ViasLigacao &vl);
 	
 };

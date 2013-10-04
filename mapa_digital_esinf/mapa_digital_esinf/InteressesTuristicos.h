@@ -33,7 +33,7 @@ public:
 	//clone
 	virtual InteressesTuristicos* clone()const;
 	//sobrecarga
-	InteressesTuristicos operator=(const InteressesTuristicos &it);
+	virtual InteressesTuristicos operator=(const InteressesTuristicos &it);
 	bool operator==(const InteressesTuristicos &it);
 };
 
