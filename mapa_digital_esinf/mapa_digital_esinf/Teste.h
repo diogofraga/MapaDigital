@@ -1,6 +1,6 @@
 
-#ifndef TESTE_H
-#define	TESTE_H
+#ifndef Teste_H
+#define	Teste_H
 
 #include <iostream>
 #include <string>
@@ -38,7 +38,7 @@ public:
 	//Construtor e destrutor
     Teste();
     ~Teste();
-	// método de teste
+	// método de Teste
     void Run();
 	//Método inserir Interesse Turistico
 	void  inserirIT(InteressesTuristicos * it);
@@ -313,5 +313,5 @@ void Teste::LerFich1(string fich1)
 	}
 	else cout << "Unable to open file";
 }
-#endif	/* TESTE_H */
+#endif	/* Teste_H */
 

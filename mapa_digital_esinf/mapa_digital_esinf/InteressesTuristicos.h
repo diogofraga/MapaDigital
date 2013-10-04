@@ -33,7 +33,7 @@ public:
 	//clone
 	virtual InteressesTuristicos* clone()const;
 	//sobrecarga
-	void operator=(const InteressesTuristicos &it);
+	InteressesTuristicos operator=(const InteressesTuristicos &it);
 	bool operator==(const InteressesTuristicos &it);
 };
 
@@ -87,9 +87,10 @@ istream& operator>> (istream& is, InteressesTuristicos &it)
 	return is;
 }
 
-void InteressesTuristicos::operator=(const InteressesTuristicos & it)
+InteressesTuristicos InteressesTuristicos::operator=(const InteressesTuristicos & it)
 {
 	this->descr = it.descr;
+	return *this;
 }
 
 bool InteressesTuristicos::operator==(const InteressesTuristicos & it)

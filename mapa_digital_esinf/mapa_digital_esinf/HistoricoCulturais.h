@@ -38,7 +38,7 @@ public:
 	//clone
 	InteressesTuristicos* clone() const ;
 	//Sobrecarga de operadores
-	void operator=(const HistoricoCulturais &hc);
+	HistoricoCulturais operator=(const HistoricoCulturais &hc);
 	bool operator==(const HistoricoCulturais &hc);
 };
 //construtores e destrutor
@@ -124,12 +124,14 @@ istream& operator>> (istream& is, HistoricoCulturais &hc)
 	return is;
 }
 
-void HistoricoCulturais::operator=(const HistoricoCulturais & hc)
+HistoricoCulturais HistoricoCulturais::operator=(const HistoricoCulturais & hc)
 {
 	this->setDescricao(hc.getDescricao());
 	this->HtempoMed = hc.HtempoMed;
 	this->HAbertura = hc.HAbertura;
 	this->HEncerramento = hc.HEncerramento;
+
+	return *this;
 }
 
 bool HistoricoCulturais::operator==(const HistoricoCulturais & hc)

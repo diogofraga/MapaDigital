@@ -33,7 +33,7 @@ public:
 	//clone
 	ViasLigacao* clone() const ;
 	//sobrecarga
-	void operator=(const AutoEstrada & at);
+	AutoEstrada operator=(const AutoEstrada & at);
 	bool operator==(const AutoEstrada & at);
 
 };
@@ -71,9 +71,10 @@ void AutoEstrada::escreve(ostream &out) const{
 
 
 //sobrecarga
-void AutoEstrada::operator=(const AutoEstrada & at)
+AutoEstrada AutoEstrada::operator=(const AutoEstrada & at)
 {
 	this->precoPortagem = at.precoPortagem;
+	return *this;
 
 }
 

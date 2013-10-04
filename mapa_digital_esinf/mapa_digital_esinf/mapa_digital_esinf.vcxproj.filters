@@ -30,10 +30,10 @@
     <ClInclude Include="Naturais.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Teste.h">
+    <ClInclude Include="ViasLigacao.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="ViasLigacao.h">
+    <ClInclude Include="Teste.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

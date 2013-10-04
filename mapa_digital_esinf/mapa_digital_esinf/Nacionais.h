@@ -32,7 +32,7 @@ public:
 	//clone
 	ViasLigacao* clone() const ;
 	//sobrecarga
-	void operator=(const Nacionais & n);
+	Nacionais operator=(const Nacionais & n);
 	bool operator==(const Nacionais & n);
 };
 //construtores e destrutor
@@ -78,9 +78,10 @@ ostream & operator <<(ostream &out, const Nacionais *n)
 	n->escreve(out);
 	return out;
 }
-void Nacionais::operator=(const Nacionais & n)
+Nacionais Nacionais::operator=(const Nacionais & n)
 {
 	this->tipoPavimento = n.tipoPavimento;
+	return *this;
 
 }
 

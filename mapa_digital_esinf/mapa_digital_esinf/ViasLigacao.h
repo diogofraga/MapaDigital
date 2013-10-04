@@ -42,7 +42,7 @@ public:
 	//virtual void listar() const ; //ainda por implementar
 	virtual ViasLigacao* clone() const; // funções virtuais puras
 	//sobrecarga
-	void operator=(const ViasLigacao &vl);
+	ViasLigacao operator=(const ViasLigacao &vl);
 	bool operator==(const ViasLigacao &vl);
 	
 };
@@ -131,11 +131,13 @@ istream& operator>> (istream& is, ViasLigacao &vl)
 	return is;
 }
 
-void ViasLigacao::operator=(const ViasLigacao & vl)
+ViasLigacao ViasLigacao::operator=(const ViasLigacao & vl)
 {
 	this->codVia = vl.codVia;
 	this->totalKm = vl.totalKm;
 	this->tempoMed = vl.tempoMed;
+
+	return *this;
 }
 
 bool ViasLigacao::operator==(const ViasLigacao & vl)

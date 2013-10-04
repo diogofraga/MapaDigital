@@ -31,7 +31,7 @@ public:
 	void escreve(ostream &out) const;
 	InteressesTuristicos* clone() const;
 	//Sobrecarga de operadores
-	void operator=(const Naturais &n);
+	Naturais operator=(const Naturais &n);
 	bool operator==(const Naturais &n);
 };
 //construtores e destrutor
@@ -83,10 +83,12 @@ istream& operator>> (istream& is, Naturais &n)
 	return is;
 }
 
-void Naturais::operator=(const Naturais & n)
+Naturais Naturais::operator=(const Naturais & n)
 {
 	this->setDescricao(n.getDescricao());
 	this->area = n.area;
+
+	return *this;
 }
 
 bool Naturais::operator==(const Naturais & n)
