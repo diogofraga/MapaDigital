@@ -16,6 +16,8 @@ using namespace std;
 class Teste
 {
 private:
+	int linhas;
+	int colunas;
 	//Cabeçalho e rodapé da aplicação
     void header();
     void bottom();
@@ -33,6 +35,8 @@ private:
 	/*void reSizeVL();*/
 	void destroy();
 	void menu();
+	void criarMatriz(int d);
+	ViasLigacao ** matrizligacao;
 
 public:
 	//Construtor e destrutor
@@ -109,8 +113,12 @@ Teste::Teste()
 }
 Teste::~Teste()
 {
+	/*for(int i=0; i<linhas; i++)
+		delete matrizligacao[i];
+	delete []matrizligacao;*/
 	destroy();
 }
+
 //metodos de controle dos vectores dinâmicos
 void Teste::destroy()
 {
@@ -125,6 +133,19 @@ void Teste::destroy()
 	}
 	delete [] vecVL;*/
 	delete [] vecIT;
+}
+
+void Teste::criarMatriz(int d)
+{
+	ViasLigacao ligacao;
+	linhas=d;
+	colunas=d;
+	matrizligacao=new ViasLigacao *[linhas];
+	for(int i=0;i<linhas;i++)
+		matrizligacao[i]=new ViasLigacao [colunas];
+	for(int i=0;i<linhas;i++)
+		for(int j=0;j<colunas;j++)
+			matrizligacao[i][j]=ligacao;
 }
 
 void Teste::reSizeIT()
@@ -205,15 +226,15 @@ void Teste::menu()
 	{
 		
 		cout << "\n                             Menu :               " << endl;
-		cout << "\n                   2--> Contabilizar IT's         " << endl;
-		cout << "\n                   1--> Carregar Ficheiros        " << endl;
+		cout << "\n                   1--> Contabilizar IT's         " << endl;
+		cout << "\n                   2--> Carregar Ficheiros        " << endl;
 		cout << "\n                   0--> Sair                      " << endl;
 		bottom();
 		cin >> opcao;
 		cin.ignore();//Sem este ignore o cin.get() simplesmente não funciona pois o cin em cima passa um \n para o cin.get() tirando o efeito do mesmo
 		switch (opcao)
 		{
-		case 1:
+		case 2:
 			{
 				system("CLS");//Clear Screen
 				//cabeçalho
@@ -237,9 +258,15 @@ void Teste::menu()
 				bottom();
 				cin.get();
 				system("CLS");//Clear Screen
+				break;
 			  }
-		case 2:{
-			contabilizaLocais();                                                      
+		case 1:{
+			system("CLS");//Clear Screen
+			header();
+			contabilizaLocais();  
+			cin.get();
+			bottom();
+			break;
 			}
 			   
 		case 0:

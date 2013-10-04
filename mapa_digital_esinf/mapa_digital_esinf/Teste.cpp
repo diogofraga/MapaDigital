@@ -5,5 +5,4 @@
 int main() {
     Teste test;
     test.Run();
-	//test.~Teste();
 }
