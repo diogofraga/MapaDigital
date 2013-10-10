@@ -21,8 +21,6 @@ private:
 	//Cabeçalho e rodapé da aplicação
     void header();
     void bottom();
-	//vectores dinâmicos e varáveis de controle
-	//Interesses Turisticos (IT)
 	InteressesTuristicos * * vecIT;
 	int tamanhoIT;
 	int actualIT;
@@ -47,9 +45,6 @@ public:
     void Run();
 	//Método inserir Interesse Turistico
 	void  inserirIT(InteressesTuristicos * it);
-	//Método inserir Vias de Ligação
-	/*void  inserirVL(const ViasLigacao * vl);*/
-	//método carregar fich
 	void LerFich1(string fich1);
 	void contabilizaLocais() const;
 };
@@ -139,12 +134,7 @@ void Teste::destroy()
 	{
 		delete vecIT[i];
 	}
-	/*
-	for (int i = 1; i < actualVL; i++)
-	{
-		delete vecVL[i];
-	}
-	delete [] vecVL;*/
+	
 	delete [] vecIT;
 }
 

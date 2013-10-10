@@ -1,5 +1,5 @@
 ﻿  Teste.cpp
-c:\users\fraga\source\repos\mapadigital2\mapa_digital_esinf\mapa_digital_esinf\teste.h(296): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
-c:\users\fraga\source\repos\mapadigital2\mapa_digital_esinf\mapa_digital_esinf\teste.h(297): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
-c:\users\fraga\source\repos\mapadigital2\mapa_digital_esinf\mapa_digital_esinf\teste.h(298): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+c:\users\fraga\source\repos\mapadigital2\mapa_digital_esinf\mapa_digital_esinf\teste.h(336): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+c:\users\fraga\source\repos\mapadigital2\mapa_digital_esinf\mapa_digital_esinf\teste.h(337): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+c:\users\fraga\source\repos\mapadigital2\mapa_digital_esinf\mapa_digital_esinf\teste.h(338): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
   mapa_digital_esinf.vcxproj -> C:\Users\Fraga\Source\Repos\MapaDigital2\mapa_digital_esinf\Debug\mapa_digital_esinf.exe
